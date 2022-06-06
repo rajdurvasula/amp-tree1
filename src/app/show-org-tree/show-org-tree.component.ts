@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { OrgTree } from './../org-tree';
+import { OrgNode } from './../org-node';
 
 @Component({
   selector: 'app-show-org-tree',
@@ -10,7 +10,7 @@ import { OrgTree } from './../org-tree';
 })
 export class ShowOrgTreeComponent implements OnInit {
 
-  orgTree: OrgTree[] = [{
+  orgTree: OrgNode[] = [{
 	  id: 'o-xxxxxxxx',
 	  name: 'jinglebell',
 	  email: '',
@@ -63,14 +63,14 @@ export class ShowOrgTreeComponent implements OnInit {
 	  ]
   }];
 
-  orgTreeControl = new NestedTreeControl<OrgTree>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<OrgTree>();
+  orgTreeControl = new NestedTreeControl<OrgNode>(node => node.children);
+  dataSource = new MatTreeNestedDataSource<OrgNode>();
 
   constructor() { 
 	  this.dataSource.data = this.orgTree
   }
 
-  hasChild = (_: number, node: OrgTree) => !!node.children && node.children.length > 0;
+  hasChild = (_: number, node: OrgNode) => !!node.children && node.children.length > 0;
 
   ngOnInit(): void {
   }

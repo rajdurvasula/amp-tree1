@@ -1,7 +1,7 @@
-export class OrgTree {
+export class OrgNode {
 	id: string;
 	name: string;
 	type: string;
 	email: string;
-	children: OrgTree[];
+	children: OrgNode[];
 }
